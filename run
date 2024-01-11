@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+folder=$1
+
+node src/build.js "$folder"
+node src/run.js "$folder" < "$folder/input"
