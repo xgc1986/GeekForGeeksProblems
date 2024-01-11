@@ -2,3 +2,5 @@
 node_modules
 notes.txt
 config.json
+deploy
+.DS_Store
