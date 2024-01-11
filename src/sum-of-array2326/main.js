@@ -20,7 +20,6 @@ export default function main(input) {
     }
 }
 
-
 class Solution {
 
     /**
