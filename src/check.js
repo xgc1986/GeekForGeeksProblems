@@ -11,7 +11,7 @@ const GRAY = '\x1b[37m';
 
 let success = true;
 for (let l = 0; l < Math.max(expected.length, actual.length); l++) {
-    if (expected[l] !== actual[l]) {
+    if (expected[l].trimEnd() !== actual[l].trimEnd()) {
         const e = expected[l].replaceAll(' ', GRAY + '˽' + RESET);
         const a = (actual[l] || '').replaceAll(' ', GRAY + '˽' + RESET);
         console.log(`Expected -> ${e}`);
