@@ -67,8 +67,6 @@ import * as fs from "node:fs";
     main = main.replaceAll('printList', 'input.printList');
     main = main.replaceAll('// } Driver Code Ends', '');
 
-    let comment = '';
-
     const userParts = json.results.extra.initial_user_func.javascript.user_code;
     main += userParts;
     fs.writeFileSync(`src/${folder}/main.js`, prev + main);
