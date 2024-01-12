@@ -69,19 +69,8 @@ import * as fs from "node:fs";
 
     let comment = '';
 
-    const userParts = json.results.extra.initial_user_func.javascript.user_code.split(/\n\s*\n/);
-    for (const userPart of userParts) {
-        if (userPart.startsWith('/*')) {
-            comment = userPart;
-        }
-        if (userPart.startsWith('class')) {
-            const lines = userPart.split('\n');
-            lines.shift();
-            main += 'class Solution {\n\n';
-            main += comment + '\n';
-            main += lines.join('\n') + '\n';
-        }
-    }
+    const userParts = json.results.extra.initial_user_func.javascript.user_code;
+    main += userParts;
     fs.writeFileSync(`src/${folder}/main.js`, prev + main);
 
     console.log(`Code: file://${process.cwd()}/src/${folder}/main.js`);
