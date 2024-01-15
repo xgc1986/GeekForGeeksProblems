@@ -10,24 +10,40 @@
  * }} input
  */
 export default function main(input) {
-  let t = parseInt(input.readLine());
-  let i = 0;
- 
-  for (; i < t; i++) {
-    let n = parseInt(input.readLine());
-    
-    let obj = new Solution();
-    obj.printPat(n);
-  }
+    let t = parseInt(input.readLine());
+    let i = 0;
+
+    for (; i < t; i++) {
+        let n = parseInt(input.readLine());
+
+        let obj = new Solution();
+        obj.printPat(n);
+    }
 
 }
 
 class Solution {
 
-/**
- * @param {number} n
-*/
-  printPat(n){
-    //code here
-  }
+    /**
+     * @param {number} n
+     */
+    printPat(n) {
+        const ret = [];
+        for (let i = 0; i < n; i++) {
+            ret.push([]);
+        }
+
+        for (let num = n; num > 0; num--) {
+            for (let row = 0; row < n; row++) {
+                for (let times = 0; times < n - row; times++) {
+                    ret[row].push(num);
+                }
+            }
+        }
+
+        for (let i = 0; i < ret.length; i++) {
+            process.stdout.write(ret[i].join(' ') + ' $');
+        }
+        console.log();
+    }
 }
